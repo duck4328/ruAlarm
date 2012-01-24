@@ -1,6 +1,4 @@
 #!/usr/bin/ruby
-
-
 require 'rubygems'
 require 'fox16'
 require 'fox16/colors'
@@ -28,6 +26,7 @@ aTextbox.connect(SEL_CHANGED) { |sender,sel, ptr| $timeToRing = aTextbox.text}
 aToggle.connect(SEL_COMMAND) { |sender, sel, ptr| 
 t = Time.now
 x = t.strftime("%R")
+
 if aToggle.text.eql?("Turn on!")
     $alarmStatus = true
     aToggle.text = "Turn off!"
@@ -46,7 +45,6 @@ FXTextField.new(main, 10, nil)
 application.create()
 main.show(PLACEMENT_SCREEN)
 application.run()
-
 end
 
 
@@ -67,7 +65,6 @@ end
 
 def RingAlarm
     if  RUBY_PLATFORM.downcase.include?("darwin")
-        RUBY_PLATFORM.downcase.include?("darwin")
         `afplay alarm.mp3`
     end
 end
