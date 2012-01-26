@@ -66,6 +66,10 @@ end
 def RingAlarm
     if  RUBY_PLATFORM.downcase.include?("darwin")
         `afplay alarm.mp3`
+    else
+        if RUBY_PLATFORM.downcase.include?("linux")
+            `mpg123 alarm.mp3`
+        end
     end
 end
 
